@@ -1,0 +1,125 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoCall</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="icons.css">
+    <link rel="stylesheet" href="chatSection.css">
+    <link rel="stylesheet" href="timer.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="videoSection full">
+            <!-- Main Video -->
+            <div class="mainVideo full">
+                <video id="localVideo" class="localVideo" autoplay playsinline muted></video>
+            </div>
+
+            <!-- Small Video for the user -->
+            <div id="insetVideo" class="insetVideo">
+                <video id="remoteVideo" class="remoteVideo" autoplay playsinline></video>
+                <button class="expand-icon">
+                    <img src="./images/expand.png" alt="Expand" />
+                </button>
+            </div>
+
+            <!-- Timer -->
+            <div class="timer" >
+                <img src="./images/red-circle.png" alt="timer">
+                <div id="timer" class="timer-text"> 00:00:00</div>
+            </div>
+
+            <!-- Bottom Controls -->
+            <div class="bottomWrapper">
+              
+                <button class="videoicon">
+                    <img src="./images/video.png" alt="Video" class="icon-visible-video">
+                    <img src="./images/videocam.png" alt="Video" class="icon-hidden video">
+
+                </button>
+                <button class="mic">
+                    <img src="./images/mic.png" alt="Mic" class="icon-visible-mic">
+                    <img src="./images/mic-off.png" alt="Mic" class="icon-hidden mic-off">
+                </button>
+                <button class="endCall" id="endCallButton">
+                    <img src="./images/phone-call.png" alt="endCall">
+                </button>
+               
+                <button class="speaker">
+                    <img src="./images/volume.png" alt="Speaker" class="icon-visible-volume">
+                    <img src="./images/mute.png" alt="Speaker" class="icon-hidden mute">
+                </button>
+                <button class="flipCamera">
+                    <img src="./images/cam-rotate.png" alt="Camera">
+                
+                <button class="message">
+                    <img src="./images/message.png" alt="Message">
+                </button>
+                <button class="subtitleControls" id="subtitleToggle">
+                    <img src="./images/cc.png" alt="Subtitles">
+                </button>
+                
+            </div>
+        </div>
+        <!-- Chat-Section  -->
+        <div class="chatSection hidden">
+            <!-- Header Section -->
+            <div class="chatHeader">
+
+                <div class="Header-text">Messages</div>
+                <button class="tab active closeChat"><img src="./images/cross.png" class="closeMsg" alt="close"> </button>
+                <!-- <button class="tab">Participants</button> -->
+            </div>
+
+            <!-- Messages Section -->
+            <div class="chatMessages" id="messageContainer">
+                <!-- Message from Casey -->
+                <div class="messageRow left">
+                    <div class="chat-headers">
+                    <img src="images/chatImg.jpg" alt="Casey" class="profilePic">
+                    <span class="senderName">Casey</span>
+                </div>
+                <div class="msg-time">
+                    <div class="messageContent">
+                        <div class="messageText">Hello Guys! What's your opinion?</div>
+                    </div>
+                    <span class="messageTime">2:12 PM</span>
+                </div>
+                </div>
+
+                <!-- Typing Indicator -->
+                <div class="typingIndicator">John is typing...</div>
+            </div>
+            <div id="filePreviewContainer" style="display: none;">
+                <div id="filePreview"></div>
+            </div>
+
+            <div class="chatInputWrapper">
+                <!-- Input Section -->
+                <input type="text" placeholder="Write message here...">
+                <button class="sendButton">
+                    <label for="fileInput" class="sendButton">
+                        <img src="./images/attach-file.png" alt="Attach File">
+                    </label>
+                    <input type="file" id="fileInput" class="fileInput" style="display: none;" multiple />
+                </button>
+                
+                <button class="sendButton" id="sendChat">
+                    <img src="./images/send.png" alt="Send">
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <script type="module" src="./config.js"></script>
+    <script type="module" src="./timer.js"></script>
+    <script type="module" src="./startup-check.js"></script>
+    <script type="module" src="./webrtc-handler.js"></script>
+    <script type="module" src="./ui-controller.js"></script>
+
+</body>
+
+</html>

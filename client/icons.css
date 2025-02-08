@@ -1,0 +1,142 @@
+.bottomWrapper{
+    width: 50%;
+    height: 100px;
+    flex-shrink: 0;
+    border-radius: 10.788px;
+    box-shadow: 3.237px 4.315px 34.523px 0px rgba(0, 0, 0, 0.54);
+    backdrop-filter: blur(34.52267837524414px);
+    position: absolute;
+    bottom: 3%;;
+    right: 25% !important;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.videoicon, .mic, .endCall, .speaker, .message , .flipCamera, .subTitleControls{
+    width: 64.513px;
+    height: 64.18px;
+    flex-shrink: 0;
+    border-radius: 100%;
+    border: 0;
+    cursor: pointer;
+    transition: .5s all;
+    background-color: rgba(0, 0, 0, 0.52);
+}
+.videoicon:hover, .mic:hover, .endCall:hover, .speaker:hover, .message:hover, .subTitleControls:hover {
+    scale: .95;
+}
+.videoicon {
+    transition: .4s all;
+}
+.videoicon img , .flipCamera img  ,.mic img, .subTitleControls img {
+    width: 37.513px;
+    height: 37.18px;
+}
+.endCall {
+    background-color: #F8000F;
+}
+.endCall img {
+    width: 30.513px;
+    height: 30.18px;
+    rotate: 45deg;
+}
+
+.speaker img {
+    width: 37.513px;
+    height: 30.18px;
+}
+
+.message img {
+    width: 32.513px;
+    height: 32.18px;
+}
+/* Active state */
+.message.active {
+    background-color: white;
+}
+
+.message.active img {
+    filter: invert(1); /* Makes the image appear black */
+}
+.subTitleControls img {
+    filter: invert(1); /* Makes the image appear black */
+}
+.subTitleControls {
+    transition: filter 0.3s ease; /* Smooth transition for the invert effect */
+}
+
+.flipCamera{
+    display: none;
+}
+.icon-hidden{
+  display:none;
+}
+.captionBox {
+    position: absolute;
+    bottom: 15%; /* Adjust to position the text above the controls */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    display: none; /* Initially hidden */
+    z-index: 10;
+    max-width: 80%; /* Prevent text overflow */
+    text-align: center;
+    transition: filter 0.3s ease; /* Smooth transition for the invert effect */
+}
+
+
+@media (max-width: 768px) and (min-height: 600px) {
+    .bottomWrapper {
+        width: 85%;
+        height: 70px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        position: absolute;
+        left: 7.5%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 0 10px;
+    }
+
+    .videoicon, .mic, .call,.endCall ,.message , .flipCamera, .subTitleControls{
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.2s all;
+    }
+    .speaker{
+        display: none;
+    }
+
+    .endCall {
+        background-color: #F8000F;
+        border-radius: 100%;
+    }
+
+    .endCall img, .videoicon img, .mic img ,.message img, .subTitleControls img{
+        width: 20px;
+        height: 20px;
+    }
+
+    .endCall img {
+        rotate: 45deg;
+    }
+    .flipCamera img {
+        width: 24px;
+        height: 24px;
+    }
+     .flipCamera{
+        display: block;
+    }
+}

@@ -1,0 +1,341 @@
+* {
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    font-family:'Helvetica' ,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.chatSection {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    background-color: #ffffff;
+    transition: width 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 100;
+}
+.chatSection.hidden {
+    width: 0; 
+}
+.chatSection.expanded {
+    width: 30%; 
+}
+.chatHeader {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    height: 60px;
+    background: #1e3a5f;
+    width: 100%;
+}
+.tab {
+    width: 45px;
+    height: 45px;
+    border: none;
+    cursor: pointer;
+    border-radius: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin: auto;
+}
+.Header-text{
+    font-size: 22px;
+    font-weight: bold;
+    height: 100%;
+    width: 85%;
+    padding-top: 15px;
+    padding-left: 2.5rem;
+    color: #fff;
+}
+.tab.active {
+    background: #182f4b;
+    color: #fff;
+}
+.chatHeader .tab.active img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}                
+/* Messages Section */
+.chatMessages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.chat-headers{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.chat-headers span{
+    font-size: 12px;
+    color: rgb(111, 111, 111);
+    font-weight: 400;
+}
+.msg-time{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.msg-time span{
+    display: block;
+    font-size: 12px;
+    color: rgb(111, 111, 111);
+    font-weight: 400;
+}       
+.messageRow {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.messageRow.left {
+    justify-content: flex-start;
+}
+
+.messageRow.right {
+    justify-content: flex-end;
+}
+
+.profilePic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.messageContent {
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #7aaef1;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    position: relative;
+    font-size: 14px;
+    overflow: hidden;
+}
+.messageContent .messageHeader {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.messageContent .senderName {
+    font-weight: bold;
+    color:#ffffff
+}
+.messageContent .messageTime {
+    color: #ffffff;
+}
+.messageRow.right .messageContent {
+    background: #22569a;
+    color: #fff;
+    border-radius: 10px 0 10px 10px;
+}
+/* Typing Indicator */
+.typingIndicator {
+    font-size: 14px;
+    color: #aaa;
+    font-style: italic;
+    margin-top: 10px;
+}
+/* Input Section */
+.chatInputWrapper {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    background: #fcfcfc;
+    justify-content: space-evenly; 
+    border: none;
+}
+.chatInputWrapper input {
+    width: 70%;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    outline: none;
+    font-size: 14px;
+    margin-right: 10px;
+    padding: 3%;
+}
+#filePreviewContainer {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid rgb(241, 241, 241);
+    border-radius: 5px;
+}
+
+#filePreview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Adds spacing between items */
+}
+
+.file-name {
+    font-size: 10px;
+    color: #000000;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+#filePreview img {
+    width: 70px;
+    height: 70px; /* Consistent size for all images */
+    object-fit: cover; /* Ensures the image fits well without distortion */
+    border: 1px solid rgb(241, 241, 241);
+    border-radius: 5px; /* Adds rounded corners */
+}
+
+
+.chatInputWrapper button {
+    background: #eeeef0;
+    color: #3D75FF;
+    border: none;
+    height: 45px;
+    width: 45px;
+    padding: 5px 5px;
+    border-radius: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.chatInputWrapper button:hover{
+    scale: .95;
+}
+.chatInputWrapper button img {
+    padding: 2px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+.toggleChatButton {
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+
+/* iOS Safari Fixes */
+@supports (-webkit-touch-callout: none) {
+    * {
+        box-sizing: border-box;
+        margin:0;
+        padding:0;
+        font-family:'Helvetica' ,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .chatSection.expanded {
+        height: 45%;
+        width: 100%;
+        max-height: 50vh; /* Ensure it doesn't exceed half the viewport height */
+        border-top: #3D75FF;
+/*         border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+        -webkit-border-top-left-radius: 1rem;
+        -webkit-border-top-right-radius: 1rem; */
+         overflow: hidden;
+    }
+    
+
+    .chatInputWrapper input {
+        font-size: 16px; /* Prevents zoom on focus */
+        margin-bottom: 0px;
+        appearance: none; /* Normalize input appearance */
+        /* -webkit-appearance: none; /* Normalize input appearance */
+        border: 1px solid #ddd;
+        border-radius: 25px;
+        padding: 3%;
+        flex: 1 1 auto;
+    }
+
+    .chatMessages {
+        -webkit-overflow-scrolling: touch; /* Enables smooth scrolling */
+        overflow-y: auto;
+    }
+
+    #filePreview img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        -webkit-object-fit: cover;
+        border: 1px solid rgb(241, 241, 241);
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+    }
+    .chatSection{
+        padding-bottom: env(safe-area-inset-bottom); /* Handles space caused by the keyboard */
+    }
+
+}
+
+
+@media (max-width: 768px) and (min-height: 600px) {
+    .action-buttons .chat img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .chatSection.expanded {
+        height: 45%;
+        width: 100%;
+        border-top: #3D75FF;
+        /* Safari might have issues with border radius here; add prefixes */
+        /* Uncomment these if needed */
+    }
+
+    .chatHeader .tab {
+        font-size: 14px;
+    }
+
+    .messageContent {
+        font-size: 12px;
+    }
+
+    .chatHeader .tab.active img {
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+    }
+
+    #filePreviewContainer {
+        margin-top: 10px;
+        padding: 10px;
+        border: 1px solid rgb(241, 241, 241);
+        border-radius: 5px;
+        -webkit-border-radius: 5px; /* Safari prefix */
+    }
+
+    #filePreview {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3px; /* Adds spacing between items */
+        /* Add fallback for older Safari versions */
+        margin-right: -3px; /* Adjust for consistent spacing */
+        margin-bottom: -3px;
+    }
+
+    .file-name {
+        font-size: 6px;
+        color: #000000;
+        margin-top: 3px;
+        cursor: pointer;
+    }
+
+    #filePreview img {
+        width: 40px;
+        height: 40px; /* Consistent size for all images */
+        object-fit: cover; /* Ensures the image fits well without distortion */
+        -webkit-object-fit: cover; /* Safari prefix for object-fit */
+        border: 1px solid rgb(241, 241, 241);
+        border-radius: 5px; /* Adds rounded corners */
+        -webkit-border-radius: 5px; /* Safari prefix */
+    }
+}
